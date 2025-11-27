@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Download Announce Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        /* Global Styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            color: #333;
         }
 
         header {
@@ -20,26 +23,34 @@
             flex-direction: column;
             background-color: #333;
             color: #fff;
-            padding: 1em;
-        }
-
-        .logo {
-            width: 150px;
-            height: auto;
-            margin-bottom: 1em;
-            display: flex;
-            justify-content: space-between;
+            padding: 2em;
+            text-align: center;
+            border-bottom: 5px solid #0077cc;
         }
 
         .logo img {
-            width: 48%;
-            height: auto;
+            max-width: 100px;
+            margin-bottom: 1em;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        main {
+            padding: 2em;
         }
 
         .download {
-            background-color: #555;
-            color: #fff;
-            padding: 1em;
+            text-align: center;
+            margin-bottom: 2em;
+        }
+
+        .download h2 {
+            font-size: 2rem;
+            font-weight: 500;
             margin-bottom: 1em;
         }
 
@@ -47,39 +58,128 @@
             display: inline-block;
             background-color: #0077cc;
             color: #fff;
+            padding: 0.75em 2em;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
             text-decoration: none;
-            padding: 0.5em 1em;
-            margin-top: 1em;
-            border-radius: 4px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
         .button:hover {
             background-color: #005fa3;
+            transform: scale(1.05);
+        }
+
+        .changelog, .software-description {
+            background-color: #fff;
+            padding: 1.5em;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2em;
+        }
+
+        .changelog h2, .software-description h2 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 1em;
+        }
+
+        .videos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2em;
+            justify-content: center;
+            margin-top: 2em;
+        }
+
+        .video-section {
+            width: 100%;
+            max-width: 560px;
+        }
+
+        .video-section h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1em;
+            text-align: center;
+        }
+
+        iframe {
+            width: 100%;
+            border-radius: 8px;
         }
 
         footer {
             background-color: #333;
             color: #fff;
-            padding: 1em;
+            padding: 1.5em;
             text-align: center;
+            font-size: 1rem;
+            border-top: 5px solid #0077cc;
         }
 
-        .videos {
-            display: flex;
-            justify-content: space-between;
+        footer p {
+            margin: 0;
         }
 
-        .video-section {
-            width: 48%;
-        }
-
-        .video-section h2 {
-            margin-bottom: 1em;
-        }
-
-        .video-section iframe {
+        /* Payment Form */
+        .payment-form {
+            display: none;  /* Initially hidden */
+            background: rgba(0, 0, 0, 0.5);
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 315px;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .payment-container {
+            background-color: #fff;
+            padding: 2em;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .payment-container input,
+        .payment-container button {
+            margin: 1em 0;
+            padding: 0.75em;
+            width: 100%;
+            font-size: 1rem;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .payment-container button {
+            background-color: #0077cc;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .payment-container button:hover {
+            background-color: #005fa3;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .videos {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .video-section {
+                width: 100%;
+                max-width: 90%;
+            }
+
+            .logo img {
+                max-width: 80px;
+            }
         }
     </style>
 </head>
@@ -87,7 +187,7 @@
     <header>
         <div class="logo">
             <img src="channel logo.png" alt="Your Company Logo">
-            <img src="applicationicon.ico" alt="Your Company Logo">
+            <img src="applicationicon.ico" alt="Your Company Icon">
         </div>
         <h1>Welcome to the Announce Pro Downloading Website</h1>
     </header>
@@ -95,49 +195,28 @@
         <section class="download">
             <h2>Download the Latest Version</h2>
             <a href="AnnouncePro Setup.exe" class="button">Download Setup</a>
+            <p>Or, make a payment to access premium features:</p>
+            <!-- Razorpay Payment Button with Direct Paylink -->
+            <a href="https://razorpay.me/@amitkumar3344?amount=Hrc9gAOPjYioEfEfn0m7SA%3D%3D" class="button" target="_blank">Purchase Premium Version</a>
         </section>
         <section class="changelog">
             <h2>Changelog</h2>
-            <p>
-                Version 1.0: Initial release
-            </p>
+            <p>Version 1.0: Initial release</p>
         </section>
-        <!-- Added section for software description -->
         <section class="software-description">
             <h2>Software Overview</h2>
-            <p>
-                "Effortless Announcements, Anytime, Anywhere!"
-
-Schedule and manage announcements seamlessly with AnnouncePro's user-friendly graphical interface. Whether you're at school or away, stay in control of your communications.
-"Empower Your Institution with AnnouncePro!"
-
-AnnouncePro is the ultimate solution for schools and universities, offering a powerful backend announcement scheduler. Schedule multiple announcements at once and let AnnouncePro work behind the scenes for you.
-"Simplify Communication, Amplify Impact!"
-
-AnnouncePro simplifies the way you communicate. Schedule, manage, and deliver announcements effortlessly, ensuring your messages are heard loud and clear across your educational institution.
-"Your Virtual Announcement Assistant!"
-
-Meet AnnouncePro, your virtual assistant for scheduling and managing announcements. Its intuitive design and backend functionality make it the go-to tool for schools and universities.
-"Unlock the Power of Timely Communication!"
-
-AnnouncePro unlocks the power of timely communication. Schedule announcements for important events, updates, or emergencies with ease, leaving you with more time to focus on what matters most.
-"Stay Organized, Stay Ahead!"
-
-AnnouncePro keeps you organized and ahead of the curve. Schedule multiple announcements simultaneously and let AnnouncePro handle the rest. Your institution's communication has never been this efficient.
-"AnnouncePro: Where Innovation Meets Education!"
-
-Experience the innovation in announcement management. AnnouncePro brings a fresh approach to scheduling announcements, catering specifically to the unique needs of schools and universities.
-            </p>
+            <p>"Effortless Announcements, Anytime, Anywhere!"</p>
+            <p>AnnouncePro is the ultimate solution for scheduling and managing announcements in educational institutions.</p>
         </section>
         <hr>
         <section class="videos">
             <div class="video-section">
                 <h2>How to Install & Use Announce Pro</h2>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/Hn-q4Ng9whk?si=jxaf_WV115oUteD5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Hn-q4Ng9whk?si=jxaf_WV115oUteD5" title="How to Install & Use Announce Pro" frameborder="0" allowfullscreen></iframe>
             </div>
             <div class="video-section">
                 <h2>Window Service Installation</h2>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/AYr9qemFE34?si=9bSi2UDmIdoyjRgs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/AYr9qemFE34?si=9bSi2UDmIdoyjRgs" title="Window Service Installation" frameborder="0" allowfullscreen></iframe>
             </div>
         </section>
     </main>
